@@ -2,7 +2,6 @@ package paf.assessment.repository;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,7 +9,6 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 
 import paf.assessment.model.Account;
-import paf.assessment.model.Transfer;
 
 import static paf.assessment.repository.SqlQueries.*;
 
@@ -49,17 +47,5 @@ public class AccountsRepository {
 			return Account.createAccount(rs);
 		}
 	}
-
-    //Method to perform funds transfer
-    // public Boolean transferFrom(Transfer tObj, String ) {
-    //     Integer updated = jdbcTemplate.update(UPDATE_RSVP_SQL, rsvp.getName(), 
-    //         rsvp.getPhone(),
-    //         rsvp.getConfirmationDate(),
-    //         rsvp.getComments(),
-    //         email);
-
-    //     return updated > 0;
-    // }
-
     
 }

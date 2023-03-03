@@ -25,3 +25,20 @@ VALUES
 -- Retrieve required data from table
 SELECT * FROM accounts;
 SELECT * FROM accounts WHERE account_id = 'V9L3Jd1BBI';
+
+-- Transaction
+START TRANSACTION;
+
+SET @fromAcct = 'V9L3Jd1BBI',
+    @toAcct = 'fhRq46Y6vB',
+    @amount = 10;
+
+UPDATE accounts
+SET balance = balance - @amount
+WHERE accountid = @fromAcct;
+
+UPDATE accounts
+SET balance = balance + @amount
+WHERE account_id = @toAcct;
+
+COMMIT;

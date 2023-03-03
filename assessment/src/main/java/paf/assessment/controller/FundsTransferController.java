@@ -1,8 +1,6 @@
 package paf.assessment.controller;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -73,6 +71,10 @@ public class FundsTransferController {
 
         //Proceed with the transfer
         Transfer formObj = Transfer.createTransferObj(form);
+        Transfer transactionCompleted = fTSvc.performTransfer(formObj);
+
+        model.addAttribute("t", formObj);
+
         return "transferred";
 
     }
