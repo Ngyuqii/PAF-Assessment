@@ -10,6 +10,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 
 import paf.assessment.model.Account;
+import paf.assessment.model.Transfer;
+
 import static paf.assessment.repository.SqlQueries.*;
 
 @Repository
@@ -37,15 +39,27 @@ public class AccountsRepository {
 
 	//Method to retrieve account details by accountid
 	//SQL_SELECTBYACCTID = "SELECT * FROM accounts WHERE account_id = ?"
-	public Optional<Account> getAccountById(String acctId) {
+	public Account getAccountById(String acctId) {
 
 		SqlRowSet rs = template.queryForRowSet(SQL_SELECTBYACCTID, acctId);
 		if (!rs.next()) {
-			return Optional.empty();
+			return null;
 		}
 		else {
-			return Optional.of(Account.createAccount(rs));
+			return Account.createAccount(rs);
 		}
 	}
+
+    //Method to perform funds transfer
+    // public Boolean transferFrom(Transfer tObj, String ) {
+    //     Integer updated = jdbcTemplate.update(UPDATE_RSVP_SQL, rsvp.getName(), 
+    //         rsvp.getPhone(),
+    //         rsvp.getConfirmationDate(),
+    //         rsvp.getComments(),
+    //         email);
+
+    //     return updated > 0;
+    // }
+
     
 }

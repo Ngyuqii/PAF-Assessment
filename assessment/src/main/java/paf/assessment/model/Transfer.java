@@ -45,6 +45,7 @@ public class Transfer {
     }
 
     //Create Transfer object from form data retrieved via multivaluemap
+    //{name1=[ckTV56axff], name2=[ckTV56axff], amount=[30], comment=[ccc]}
     public static Transfer createTransferObj(MultiValueMap<String, String> form) {
 		Transfer t = new Transfer();
 		t.setFromAcct(form.getFirst("name1"));
