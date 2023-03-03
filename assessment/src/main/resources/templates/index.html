@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+</head>
+<body>
+
+    <h1>Funds Transfer</h1>
+    <form
+    data-th-action="@{/transfer}"
+    data-th-object="${accounts}"
+    method="get">
+
+    <table>
+        <tr>
+            <td>From account:</td>
+            <td>
+                <select name="name1">
+                    <option data-th-each="a : ${accounts}" 
+                            data-th-value="${a.accountId}"
+                            data-th-text="${a.name}">
+                    </option>
+                  </select>
+            </td>
+        </tr>
+        <tr>
+            <td>To account:</td>
+            <td>
+                <select name="name2">
+                    <option data-th-each="a : ${accounts}" 
+                            data-th-value="${a.accountId}"
+                            data-th-text="${a.name}">
+                    </option>
+                  </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td>
+                <input type="text" name="{amount}">
+            </td>
+        </tr>
+        <tr>
+            <td>Comment:</td>
+            <td>
+                <textarea name="comment" placeholder="Type here" cols="30" rows="4"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="reset">Reset</button>
+            </td>
+            <td>
+                <button type="submit">Transfer</button>
+            </td>
+        </tr>
+    </table>
+    </form>
+     
+</body>
+</html>
