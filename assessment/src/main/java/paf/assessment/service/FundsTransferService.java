@@ -34,16 +34,15 @@ public class FundsTransferService {
     }
 
     //Method to perform the transaction
-    //@Transactional (rollbackFor = Exception.class)
-    //throws Exception
+    @Transactional (rollbackFor = Exception.class)
     public Transfer performTransfer(Transfer formObj) {
 
     //Generate a random 8 char id and set into comment as comment id
 	String transactionId = UUID.randomUUID().toString().substring(0, 8);
 	formObj.setTransactionId(transactionId);
 
-    Boolean transferFromSucess = transferFrom(formObj);
-    Boolean transferToSucess = transferTo(formObj);
+    transferFrom(formObj);
+    transferTo(formObj);
 
     return formObj;
 

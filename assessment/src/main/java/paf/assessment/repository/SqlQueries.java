@@ -12,7 +12,7 @@ public class SqlQueries {
 	WHERE account_id = 'V9L3Jd1BBI';
 
 	UPDATE accounts
-	SET balance = balance + 50
+	SET balance = balance + 10
 	WHERE account_id = 'V9L3Jd1BBI';
 	*/
 
@@ -31,4 +31,5 @@ public class SqlQueries {
 	public static final String SQL_TRANSFERTO = """
 		UPDATE accounts SET balance = balance + ? WHERE account_id = ?;
 		""";
+		
 }

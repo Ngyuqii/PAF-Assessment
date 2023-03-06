@@ -25,7 +25,7 @@ public class AccountsRepository {
 		List<Account> accountsList = new LinkedList<>();
 
 		//SqlRowSet object holds the result from a queryForRowSet()
-        //Convert to to model object and add to List<object>
+        //Convert to model object and add to List<object>
 		SqlRowSet rs = template.queryForRowSet(SQL_SELECTALL);
 		while (rs.next()) {
 			accountsList.add(Account.createAccount(rs));

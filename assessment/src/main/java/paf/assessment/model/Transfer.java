@@ -54,8 +54,5 @@ public class Transfer {
 		t.setComment(form.getFirst("comment"));
 		return t;
 	}
-
-
-
-    
+   
 }
